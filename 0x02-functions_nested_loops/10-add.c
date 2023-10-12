@@ -3,20 +3,12 @@
 /**
  * add - adds two integers
  *
- * @a: looks for parameters
- * @b: looks for parameters
+ * @i: looks for parameters
+ * @j: looks for parameters
  * Return: prints out the sum
  */
 
-int add(int a, int b)
+int add(int i, int j)
 {
-	int c;
-
-	if (a > 0 && b > 0)
-	{
-		c = a + b;
-		return (+c);
-	}
-	else
-		return (-c);
+	return (i + j);
 }
