@@ -3,7 +3,7 @@
  * _strncpy - copies a string
  * @dest: whatever is in src is copied here
  * @src: elements in here are copied to dest
- * @n: elements to be coupied
+ * @n: elements to be copied
  * Return: dest
  */
 
