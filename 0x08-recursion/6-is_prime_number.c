@@ -1,4 +1,6 @@
 #include "main.h"
+
+int actual_prime(int n, int index);
 /**
  * is_prime_number - returns 1 if the integer is a prime number
  * @n: parameter
@@ -17,7 +19,7 @@ int is_prime_number(int n)
  * actual_prime - is it prime recursive
  * @n: to be evaluated
  * @index: iterates
- * Returns: 1 if its prime number and 0 when vise versa
+ * Return: 1 if its prime number and 0 when vise versa
  */
 
 int actual_prime(int n, int index)
