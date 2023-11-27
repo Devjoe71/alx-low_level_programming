@@ -1,4 +1,6 @@
 #include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
 /**
  * create_file - func that creates a file
  * @filename: filename to be create
