@@ -23,17 +23,17 @@ void error_file(int file_from, int file_to, char *argv[])
 }
 
 /**
-main -  Function that checks the code.
+ * main -  Function that checks the code.
  * @argc: number of arguments.
  * @argv: arguments vector.
  * Return: it will return zero
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to; 
+	int file_from, file_to;
 	int error_clse;
 	ssize_t num_chars, newrite;
-	char buf[1024];
+	char buff[1024];
 
 	if (argc != 3)
 	{
@@ -48,17 +48,16 @@ int main(int argc, char *argv[])
 	num_chars = 1024;
 	while (num_chars == 1024)
 	{
-		num_chars = read(file_from, buf, 1024);
+		num_chars = read(file_from, buff, 1024);
 		if (num_chars == -1)
 			error_file(-1, 0, argv);
-		newrite = write(file_to, buf, num_chars);
+		newrite = write(file_to, buff, num_chars);
 		if (newrite == -1)
 			error_file(0, -1, argv);
 	}
-	OB
 
 	error_clse = close(file_from);
-	if (err_close == -1)
+	if (error_clse == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
