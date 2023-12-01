@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
 /**
  * error_file - the func checks if files can be opened
@@ -31,7 +34,8 @@ void error_file(int file_from, int file_to, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	int file_from, file_to;
+	int file_from;
+	int file_to;
 	int error_close;
 	ssize_t num_of_chars;
 	ssize_t newrite;
@@ -42,7 +46,8 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s\n", "usage: cp file_from file_to");
 		exit(97);
 	}
-	file_from = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 	num_of_chars = 1024;
 	while (num_of_chars == 1024)
@@ -63,7 +68,7 @@ int main(int argc, char *argv[])
 	error_close = close(file_to);
 	if (error_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_fom);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_from);
 		exit(100);
 	}
 	return (0);
